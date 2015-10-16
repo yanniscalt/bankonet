@@ -22,6 +22,11 @@ import javax.print.DocFlavor.INPUT_STREAM;
 
 import com.bankonet.*;
 
+import factory.Civilite;
+import factory.Client;
+import factory.Compte;
+import factory.CompteCourant;
+
 
 public class Conseiller {
 	

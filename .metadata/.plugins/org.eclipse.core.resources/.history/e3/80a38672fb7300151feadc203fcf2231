@@ -1,0 +1,9 @@
+package dao;
+
+import dao.comptes.ComptesDAO;
+
+public interface DAOFactory {
+	public ComptesDAO getCompteDAO;
+	public ClientsDAO getClientDAO;
+
+}

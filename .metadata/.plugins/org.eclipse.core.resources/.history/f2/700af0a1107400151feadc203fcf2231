@@ -1,0 +1,36 @@
+package metier;
+
+import java.util.Set;
+
+import dao.DAOFactory;
+import dao.comptes.ComptesDAO;
+import factory.Compte;
+
+public class CompteServiceImpl implements CompteService {
+	 private DAOFactory daofactory;
+
+	 
+
+	public CompteServiceImpl(ComptesDAO compteDAO) {
+		this.daofactory = daofactory;
+	}
+
+
+	public void creerCompte(String numero, String intitule, String solde) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Set<Compte> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public void delete(String intitule) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

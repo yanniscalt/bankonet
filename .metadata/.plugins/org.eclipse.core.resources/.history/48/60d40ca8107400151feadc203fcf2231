@@ -1,0 +1,22 @@
+package dao.comptes;
+import java.util.List;
+
+import factory.*;
+
+public class CompteDAOFichier implements ComptesDAO{
+
+	@Override
+	public List<Compte> FindAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

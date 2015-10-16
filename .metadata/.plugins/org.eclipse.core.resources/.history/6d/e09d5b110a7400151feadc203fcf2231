@@ -1,0 +1,16 @@
+package ihm;
+
+import dao.DAOFactoryFichier;
+import dao.DAOFactoryMySql;
+
+public class Executeur {
+
+	private DAOFactoryFichier daofichier;
+	private DAOFactoryMySql daoMysql;
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

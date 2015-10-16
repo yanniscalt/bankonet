@@ -1,0 +1,20 @@
+package dao;
+
+import dao.client.ClientsDAO;
+import dao.comptes.ComptesDAO;
+
+public class DAOFactoryFichier implements DAOFactory{
+
+	@Override
+	public ComptesDAO getCompteDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ClientsDAO getClientDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

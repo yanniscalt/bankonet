@@ -1,0 +1,27 @@
+package metier;
+
+import java.util.Set;
+
+import factory.Client;
+
+public class ClientServiceImpl implements ClientService {
+
+	@Override
+	public void creerClient(String nom, String prenom, String identifiant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Set<Client> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(String identifiant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

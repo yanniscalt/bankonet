@@ -1,0 +1,8 @@
+package metier;
+
+public interface ClientService {
+	
+	void creerClient(String nom, String prenom, String identifiant);
+	
+
+}

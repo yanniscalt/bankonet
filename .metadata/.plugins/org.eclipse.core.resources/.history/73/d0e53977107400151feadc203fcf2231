@@ -1,0 +1,32 @@
+package dao.client;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Properties;
+
+import com.bankonet.Client;
+
+public class ClientsDAOMysql implements ClientsDAO {
+
+	//@Override
+	public List<Client> FindAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	//@Override
+	public void save(Client client) {
+		
+		
+	}
+	
+	
+
+	
+	
+
+}

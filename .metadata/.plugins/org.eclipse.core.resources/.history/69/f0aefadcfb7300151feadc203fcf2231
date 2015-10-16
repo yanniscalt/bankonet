@@ -1,0 +1,8 @@
+package dao.client;
+
+import dao.comptes.Compte;
+import dao.comptes.List;
+
+public interface ClientsDAO {
+	List<Client> FindAll();
+}

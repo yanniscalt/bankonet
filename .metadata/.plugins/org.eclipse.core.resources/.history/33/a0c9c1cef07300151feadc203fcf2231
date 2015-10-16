@@ -1,0 +1,7 @@
+package dao;
+
+public interface DAOFactory {
+	CompteDAO getCompteDAO;
+	ClientDAO getClientDAO;
+
+}

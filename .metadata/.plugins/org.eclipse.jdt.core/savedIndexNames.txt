@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+C:\Users\ETY\Desktop\java\bankonet\bankonet\.metadata\.plugins\org.eclipse.jdt.core
+2617506987.index
+1065296938.index
+2140292501.index
+1515229353.index
