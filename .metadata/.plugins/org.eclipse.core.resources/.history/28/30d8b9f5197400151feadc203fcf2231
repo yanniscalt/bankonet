@@ -19,9 +19,8 @@ public class CompteServiceImpl implements CompteService {
 
 
 	public void creerCompte(String nom, String prenom, double solde, double montantdecouvert) {
-		String intituleCompte = creerIntitule(nom,prenom);
-		String nbcomptestr = nbcompte.toString();
-		Compte compte1 = new CompteCourant(nbcomptestr,intituleCompte,solde, montantdecouvert);
+		String intituleCompte = creerIntitule(nom,prenom);		
+		Compte compte1 = new CompteCourant("CC001",intituleCompte,solde, montantdecouvert);
 		comptedao.save(compte1);
 	}
 
