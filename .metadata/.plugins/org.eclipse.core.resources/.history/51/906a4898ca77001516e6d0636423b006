@@ -1,0 +1,51 @@
+package metier;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import dao.DAOFactory;
+import dao.client.ClientsDAO;
+import dao.comptes.ComptesDAO;
+import factory.Civilite;
+import factory.Client;
+
+public class ClientServiceImpl implements ClientService {
+	 
+	private ClientsDAO clientdao;
+	private ComptesDAO comptedao;
+	 
+
+	public ClientServiceImpl(ClientsDAO clientDAO, ComptesDAO comptedao) {
+		this.clientdao = clientDAO;
+		this.comptedao = comptedao ;
+	}
+
+
+	public void creerClient(String nom, String prenom, String identifiant) {
+		Client client = new Client(nom,prenom ,identifiant);		
+		CompteServiceImpl compteservice = new CompteServiceImpl(comptedao);
+		clientdao.save(client);
+		compteservice.creerCompteCourant(identifiant,nom, prenom, 0.0, 0.0);
+				
+	}
+
+
+	public Set<Client> findAll() {
+		// TODO Auto-generated method stub
+		return new HashSet<>(clientdao.findAll());
+	}
+
+
+	public void delete(String identifiant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Client findClientNom(String nom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

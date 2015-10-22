@@ -1,0 +1,19 @@
+package dao.comptes;
+
+import java.util.List;
+
+import factory.Compte;
+import factory.CompteCourant;
+import factory.CompteEpargne;
+
+public interface ComptesDAO {
+	List<Compte> FindAll();
+	
+	void save(Compte compte);
+
+	void saveCompteCourant(CompteCourant compte);
+	void saveCompteEpargne(CompteEpargne compte);
+	public void delateAllClient();
+	
+
+}

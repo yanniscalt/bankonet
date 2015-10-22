@@ -1,0 +1,44 @@
+package dao.comptes;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
+import factory.Compte;
+import factory.CompteCourant;
+import factory.CompteEpargne;
+
+public class CompteDAOJPA implements ComptesDAO{
+	public EntityManagerFactory emf ;
+	@Override
+	public List<Compte> FindAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAllCompteCourant() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAllCompteEpargne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveCompte(Compte compte) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		em.persist(compte);
+		et.commit();// et.rollback()
+		em.close();
+		
+	}
+
+}

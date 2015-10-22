@@ -1,5 +1,6 @@
 package metier;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import dao.DAOFactory;
@@ -7,6 +8,7 @@ import dao.client.ClientsDAO;
 import dao.comptes.ComptesDAO;
 import factory.Civilite;
 import factory.Client;
+import factory.Compte;
 
 public class ClientServiceImpl implements ClientService {
 	 
@@ -21,9 +23,11 @@ public class ClientServiceImpl implements ClientService {
 
 
 	public void creerClient(String nom, String prenom, String identifiant) {
-		Client client = new Client(Civilite.MONSIEUR,nom,prenom ,identifiant);		
+		Client client = new Client(nom,prenom ,identifiant);		
 		CompteServiceImpl compteservice = new CompteServiceImpl(comptedao);
-		compteservice.creerCompte(nom, prenom, 0.0, 0.0);		
+		Compte compte =  compteservice.creerCompteCourant(nom, prenom, 0.0, 0.0, client.nbCompteCourant());
+		
+		client.setComptes(compte);
 		clientdao.save(client);
 				
 	}
@@ -31,12 +35,47 @@ public class ClientServiceImpl implements ClientService {
 
 	public Set<Client> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<>(clientdao.findAll());
 	}
 
 
 	public void delete(String identifiant) {
 		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Client findClientNom(String nom) {
+		// TODO Auto-generated method stub
+		return clientdao.FindClientNom(nom);
+	}
+
+
+	@Override
+	public Client findClientPrenom(String Prenom) {
+		// TODO Auto-generated method stub
+		return clientdao.FindClientPrenom(Prenom);
+	}
+
+
+	@Override
+	public void ModifierNom(String nom, String newnom) {
+		clientdao.ModifierNom(nom, newnom);
+		
+	}
+
+
+	@Override
+	public void SupprimerClient(Integer id) {
+		clientdao.SupprimerClient(id);
+		
+	}
+
+
+	@Override
+	public void SupprimerAllClient() {
+		clientdao.supprimerAllClient();
 		
 	}
 

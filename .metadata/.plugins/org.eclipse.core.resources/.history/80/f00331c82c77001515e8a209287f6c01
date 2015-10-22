@@ -1,0 +1,5 @@
+package metier.client;
+
+public class InitService {
+
+}

@@ -1,15 +1,35 @@
 package factory;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "compte")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 public abstract class Compte implements CompteStat {
 	
-	private String numero;
+	@Id @GeneratedValue private Integer id;
 	private String intitule;
-	private double solde;
+	private Double solde;
 	
-	public Compte(String numero, String intitule, double solde) {
+	
+	@Override
+	public String toString() {
+		return "Compte [id=" + id + ", intitule=" + intitule + ", solde=" + solde + "]";
+	}
+
+	public Compte() {
 		super();
-		this.numero = numero;
+	}
+
+	public Compte(String intitule, double solde) {
+		super();
 		this.intitule = intitule;
 		if(solde >= 0.0) {
 			this.solde = solde;
@@ -20,12 +40,7 @@ public abstract class Compte implements CompteStat {
 	
 	abstract protected double calculerDebitMaximum();
 	
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+	
 	public String getIntitule() {
 		return intitule;
 	}
@@ -58,10 +73,6 @@ public abstract class Compte implements CompteStat {
 		compte.crediter(montant);
 	}
 	
-	@Override
-	public String toString() {
-		return String.format("CompteCourant [numero=%s, intitule=%s, solde=%s]", numero,
-				intitule, solde);
-	}
+
 
 }

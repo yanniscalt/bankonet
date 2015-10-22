@@ -1,16 +1,15 @@
 package metier;
 
+import java.util.List;
 import java.util.Set;
 
-import dao.DAOFactory;
 import dao.comptes.ComptesDAO;
 import factory.Compte;
 import factory.CompteCourant;
 
 public class CompteServiceImpl implements CompteService {
 	 private ComptesDAO comptedao;
-	 private Integer nbcompte = 0;
-
+	
 	 
 
 	public CompteServiceImpl(ComptesDAO compteDAO) {
@@ -18,17 +17,26 @@ public class CompteServiceImpl implements CompteService {
 	}
 
 
-	public void creerCompte(String nom, String prenom, double solde, double montantdecouvert) {
-		String intituleCompte = creerIntitule(nom,prenom);
-		String nbcomptestr = nbcompte.toString();
-		Compte compte1 = new CompteCourant(nbcomptestr,intituleCompte,solde, montantdecouvert);
-		comptedao.save(compte1);
+	@Override
+	public Compte creerCompteEpargne(String numero, String intitule, Double solde, Double TauInteret, Integer nbcomptecourant) {
+		
+		return null;
 	}
 
 
-	public Set<Compte> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	@Override
+	public Compte creerCompteCourant(String nom, String prenom, Double solde, Double Montantdecouvert, Integer nbcomptecourant) {
+		String intituleCompte = creerIntitulecourant(nom,prenom,nbcomptecourant);		
+		CompteCourant compte1 = new CompteCourant(intituleCompte,solde, Montantdecouvert);
+		comptedao.saveCompte(compte1);
+		return compte1;
+		
+	}
+	
+	
+	public List<Compte> findAll() {
+		
+		return comptedao.FindAll();
 	}
 
 	
@@ -37,18 +45,18 @@ public class CompteServiceImpl implements CompteService {
 		
 	}
 	
-	private String creerIntitule(String nom, String prenom){
+	private String creerIntitulecourant(String nom, String prenom, Integer nbcomptecourant){
 		
 		StringBuilder ch = new StringBuilder();
 		ch.append(nom.toUpperCase());
 		ch.append("_");
 		ch.append(prenom.toUpperCase());
 		ch.append("_COURANT_");
-		nbcompte++;
-		ch.append(nbcompte);
-		
+		nbcomptecourant++;
+		ch.append(nbcomptecourant);
 		return ch.toString();		
 	
 	}
+
 
 }

@@ -1,0 +1,80 @@
+package ihm;
+
+import java.util.Scanner;
+
+import dao.DAOFactory;
+import dao.DAOFactoryFichier;
+import dao.DAOFactoryMySql;
+import dao.client.ClientsDAO;
+import factory.Client;
+import metier.*;
+
+public class Executeur {
+
+	private  DAOFactory daofichier = new DAOFactoryFichier();
+	private DAOFactory daosql = new DAOFactoryMySql();
+	
+	private ClientService clientdaofichier = new ClientServiceImpl(daofichier.getClientDAO() , daofichier.getCompteDAO()) ;
+	private ClientService clientdaosql = new ClientServiceImpl(daosql.getClientDAO() ,  daosql.getCompteDAO());
+	
+	private CompteService comptedaofichier = new CompteServiceImpl(daofichier.getCompteDAO());
+	private CompteService comptedaosql = new CompteServiceImpl(daofichier.getCompteDAO());
+	
+	
+public static void main(String[] args) {
+		Executeur app = new Executeur();
+		app.start();
+		
+		
+	}
+
+private void start(){
+	Scanner sc = new Scanner(System.in);
+	Integer value = null;
+	System.out.println("***** APPLICATION CONSEILLER BANCAIRE ******");
+	System.out.println("0. Arrêter le programme");
+	System.out.println("1. Ouvrir un compte courant");
+	System.out.println("2. Lister tous les clients");
+	value = sc.nextInt();
+
+	
+do{	
+switch(value){
+	case 1: 
+		System.out.println("Ouverture Compte");
+		
+	break;
+	case 2: 
+		System.out.println("Liste des clients");
+	break;
+	case 0: 
+		System.out.println("0");
+	break;
+default: System.out.println("Saisi non valide");
+}
+
+}while(value!= 0);
+
+System.out.println("Arret application");
+}
+
+
+public void ouverturecompte(){
+	Scanner sc = new Scanner(System.in);
+	String nom;
+	String prenom;
+	String login;
+	
+	System.out.println("Saisissez le nom");
+	nom = sc.nextLine();
+	System.out.println("Saisissez le prenom");
+	prenom = sc.nextLine();
+	System.out.println("Saisissez le login");
+	login = sc.nextLine();
+	
+	clientdaosql.creerClient(nom, prenom, login);	
+}
+}
+
+	
+

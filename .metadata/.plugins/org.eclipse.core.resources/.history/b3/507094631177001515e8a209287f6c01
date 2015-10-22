@@ -1,0 +1,15 @@
+package ihm;
+
+import dao.DAOFactory;
+import dao.DAOFactoryFichier;
+import dao.DAOFactoryMySql;
+import dao.client.ClientsDAO;
+import factory.Client;
+import metier.*;
+
+public abstract class IhmCommand {
+	abstract public  Integer getId();
+	abstract public  String getLibelle();
+	abstract void Execute(ClientService client);
+	
+}

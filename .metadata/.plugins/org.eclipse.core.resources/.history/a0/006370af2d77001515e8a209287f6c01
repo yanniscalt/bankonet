@@ -1,0 +1,15 @@
+package metier.client;
+
+import factory.Client;
+
+public class InitService {
+	
+	public void init(){
+		 Client client1 = new Client("Dupont","Pierre","DP");
+		 Client client2 = new Client("Martin","Paul","MP");
+		 Client client3 = new Client("Parker","Tony","TP");
+		 Client client4 = new Client("Renard","Hugo","RH");
+		 Client client5 = new Client("Lauren","Ralph","LR");
+	}
+
+}

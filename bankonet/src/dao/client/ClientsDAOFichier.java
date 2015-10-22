@@ -5,16 +5,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import factory.Client;
 
 public class ClientsDAOFichier implements ClientsDAO {
 
 	
-	public List<Client> FindAll() {
-		// TODO Auto-generated method stub
+	public List<Client> findAll() {
+		
 		return null;
 	}
 
@@ -58,17 +61,24 @@ public class ClientsDAOFichier implements ClientsDAO {
 		ch.append("nom:");
 		ch.append(nom);
 		ch.append("&prenom:");
-		ch.append(prenom);
-		ch.append("&comptes_courant:");
+		ch.append(prenom);		
+		ch.append("&comptes_courant:");		
 		nbcompte = client.nbCompte();
-		for (int i=0; i<nbcompte;i++)
+		for (int i=0; i<=nbcompte;i++)
 		{
 			ch.append("CC00");
 			ch.append(nbcompte.toString());
 			ch.append(",");
-		}
+		}		
 		
 		return ch.toString();
+	}
+
+
+	@Override
+	public void delateAllClient() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

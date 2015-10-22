@@ -1,21 +1,31 @@
 package factory;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("CE")
 public class CompteEpargne extends Compte {
 	private static final double PLAFOND = 12000;
 	
-	private double tauxInteret;
+	private Double taux;
 
-	public CompteEpargne(String numero, String intitule, double solde, double tauxInteret) {
-		super(numero, intitule, solde);
-		this.tauxInteret = tauxInteret;
+	
+	public CompteEpargne() {
+		super();
+	}
+
+	public CompteEpargne(String intitule, double solde, double tauxInteret) {
+		super(intitule, solde);
+		this.taux = tauxInteret;
 	}
 
 	public double getTauxInteret() {
-		return tauxInteret;
+		return taux;
 	}
 
 	public void setTauxInteret(double tauxInteret) {
-		this.tauxInteret = tauxInteret;
+		this.taux = tauxInteret;
 	}
 
 	@Override
@@ -26,11 +36,6 @@ public class CompteEpargne extends Compte {
 		super.crediter(montant);
 	}
 
-	@Override
-	public String toString() {
-		return String.format("CompteEpargne [tauxInteret=%s, getNumero()=%s, getIntitule()=%s, getSolde()=%s]",
-				tauxInteret, getNumero(), getIntitule(), getSolde());
-	}
 
 	@Override
 	protected double calculerDebitMaximum() {

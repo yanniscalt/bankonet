@@ -12,15 +12,15 @@ public class DAOFactoryMySql implements DAOFactory {
 	private ClientsDAO clientdao = new ClientsDAOMysql();
 	
 
-	public CompteDAOMySql getCompteDAO() {
+	public ComptesDAO getCompteDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return comptedao;
 	}
 
 
-	public ClientsDAOMysql getClientDAO() {
+	public ClientsDAO getClientDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return clientdao;
 	}
 
 

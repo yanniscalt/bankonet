@@ -6,103 +6,115 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 import java.io.BufferedWriter;
 
-
+@Entity
+@Table(name = "client")
+@NamedQueries({
+	@NamedQuery(name="Client.findByLastname", query="select c from Client c where c.NOM=:name"),
+	@NamedQuery(name="Client.findByFirstname", query="select c from Client c where c.PRENOM=:firstname")
+})
 public class Client {
 	
-	private Civilite civilite;
-	@ToString (uppercase = true) private String nom;
-	@ToString private String prenom;
-	private String identifiant;
-	private String mdp = "1234";
+	private String NOM;
+	private String PRENOM;
+	private String LOGIN;
+	@Id @GeneratedValue private Integer id ;
+	//private String mdp;
+	 
+	@ManyToMany
+	@JoinTable(name="compte_client",
+	joinColumns = @JoinColumn(name="id_client", referencedColumnName="id"),
+	inverseJoinColumns= @JoinColumn(name="id_compte", referencedColumnName="id"))
 	
-	private Map<String, Compte> comptesMap = new HashMap<>();
+	private List<Compte> comptes = new ArrayList<>();
+
+	
 	
 
-	public Client(Civilite civilite, String nom, String prenom, String identifiant) {
+	public Client() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public String toString() {
+		return "Client [nom=" + NOM + ", prenom=" + PRENOM + ", login=" + LOGIN + ", id=" + id + "]";
+	}
+
+	public Client(String nom, String prenom, String login) {
 		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.identifiant = identifiant;
-		this.civilite = civilite;
-	}
-	
-	public void creerCompte(Compte compte) {
-		comptesMap.put(compte.getNumero(), compte);
-	}
-	
-	public void supprimerCompte(Compte compte) {
-		comptesMap.remove(compte.getNumero());
-	}
-	
-	public Compte retournerCompte(String numero) throws CompteNonTrouveException {
-		Compte compteRecherche = (Compte) comptesMap.get(numero);
-	
-		if(compteRecherche == null) {
-			throw new CompteNonTrouveException();
-		}
+		this.NOM = nom;
+		this.PRENOM = prenom;
+		this.LOGIN =login;
 		
-		return compteRecherche;
 	}
-	
-	
-	public void supprimerCompte(String numero) throws CompteNonTrouveException {
-		Compte compteRecherche = retournerCompte(numero);
-		comptesMap.remove(compteRecherche.getNumero());
-	}
-	
 
 	public String getNom() {
-		return nom;
+		return NOM;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.NOM = nom;
 	}
 
 	public String getPrenom() {
-		return prenom;
+		return PRENOM;
 	}
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.PRENOM = prenom;
 	}
 
-	public String getIdentifiant() {
-		return identifiant;
+
+	public String getLogin() {
+		return LOGIN;
 	}
 
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
-	}
-
-	public Collection<Compte> getComptesList() {
-		return comptesMap.values();
-	}
-
-	@Override
-	public String toString() {
-		return String.format("Client [nom=%s, prenom=%s, identifiant=%s, mdp=%s]", nom, prenom, identifiant, mdp);
-	}
-
-	
-	public int nbCompte(){
-		return comptesMap.size();
+	public void setLogin(String login) {
+		this.LOGIN = login;
 	}
 	
-	public Boolean mdpValid(String mdp){
-		if (this.mdp == mdp)
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
+	public Integer getId(){
+		return id;
 	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Compte> getComptes() {
+		return comptes;
+	}
+
+	public void setComptes(Compte comptes) {
+		this.comptes.add(comptes);
+	}
+	
+	public Integer nbCompteCourant(){
+		Integer i = 0;
+		for(Compte c : comptes)
+		{
+			if(c instanceof CompteCourant)
+			{
+				i++;
+			}
+		}
+		return i;
+	}
+	
 	
 	
 

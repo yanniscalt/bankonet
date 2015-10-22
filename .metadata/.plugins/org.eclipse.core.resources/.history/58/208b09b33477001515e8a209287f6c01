@@ -1,0 +1,5 @@
+package dao.comptes;
+
+public class CompteDAOJPA {
+
+}

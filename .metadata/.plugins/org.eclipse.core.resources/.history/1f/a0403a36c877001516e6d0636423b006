@@ -1,0 +1,30 @@
+package dao;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import dao.client.ClientDAOJPA;
+import dao.client.ClientsDAO;
+import dao.comptes.CompteDAOJPA;
+import dao.comptes.ComptesDAO;
+
+
+public class DAOFactoryJPA implements DAOFactory{
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bankonet") ;
+	
+	private ComptesDAO comptedao = new CompteDAOJPA();
+	private ClientsDAO clientdao = new ClientDAOJPA(emf);
+
+	@Override
+	public ComptesDAO getCompteDAO() {
+		
+		return comptedao;
+	}
+
+	@Override
+	public ClientsDAO getClientDAO() {
+		
+		return clientdao;
+	}
+
+}
