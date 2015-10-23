@@ -1,3 +1,9 @@
 /clients.properties
 /com/
 /comptes.properties
+/dao/
+/factory/
+/ihm/
+/metier/
+/main/
+/test/

@@ -1,7 +1,0 @@
-package dao.client;
-import factory.*;
-
-public interface ClientsDAO {
-	List<Client> FindAll();
-	save(Client);
-}

@@ -1,0 +1,3 @@
+delete FROM 'compte_client';
+delete FROM 'client';
+delete FROM 'compte';

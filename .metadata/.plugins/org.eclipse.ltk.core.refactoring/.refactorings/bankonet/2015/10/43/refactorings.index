@@ -1,3 +1,10 @@
 1445255727211	Rename method 'FindAll'
 1445343659718	Encapsulate field 'login'
 1445348551209	Rename field 'clientdaosql'
+1445500448966	Rename local variable 'toto'
+1445506300408	Delete element
+1445506330723	Delete element
+1445518092810	Copy packages
+1445518168796	Copy packages
+1445519848330	Copy packages
+1445521061253	Move folder

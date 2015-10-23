@@ -1,8 +1,0 @@
-package dao.comptes;
-
-public interface ComptesDAO {
-	List<Compte> FindAll();
-	
-	save(Compte compte);
-
-}

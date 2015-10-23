@@ -1,7 +1,0 @@
-package dao;
-
-import dao.ComptesDAO;
-
-public class CompteDAOMySql implements ComptesDAO {
-
-}

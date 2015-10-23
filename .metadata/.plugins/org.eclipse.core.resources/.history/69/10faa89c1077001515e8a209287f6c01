@@ -1,5 +1,0 @@
-package ihm;
-
-public abstract class IhmcCommand {
-
-}

@@ -30,7 +30,6 @@
 <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
-<fullyQualifiedTypeName name="factory.Client"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
@@ -53,4 +52,8 @@
 <fullyQualifiedTypeName name="factory.Compte"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.CascadeType"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="factory.Client"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
 </qualifiedTypeNameHistroy>

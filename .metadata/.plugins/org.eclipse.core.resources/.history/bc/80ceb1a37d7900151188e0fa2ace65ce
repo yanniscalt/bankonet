@@ -1,0 +1,2 @@
+INSERT INTO 'client' (NOM,PRENOM,LOGIN)
+VALUES ("durant",'kevin','KD')

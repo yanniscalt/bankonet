@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>dta</groupId>
+	<artifactId>bankonet-conseiller</artifactId>
+	<version>1.0.0</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>dta</groupId>
+			<artifactId>bankonet-lib</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-shade-plugin</artifactId>
+					<version>2.4.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<archive>
+							<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<mainClass>ihm.Executeur</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+
+				</plugin>
+				
+				<plugin>
+          			<groupId>org.codehaus.mojo</groupId>
+          			<artifactId>sql-maven-plugin</artifactId>
+          			<version>1.5</version>
+          				<configuration>
+          				<driver></driver>
+         			 	<url></url>
+          				<username>yannis</username>
+          				<password>yannis</password>
+          				<srcFiles>
+                			<srcFile>main/clean-db.sql</srcFile>
+              			</srcFiles>
+       				 </configuration>  
+       				 <executions>
+				          <execution>
+				            <phase></phase>
+				            <goals>
+				              <goal>execute</goal>
+				            </goals>
+				            <!-- specific configuration for this execution -->
+				            <configuration>
+				              <!-- specify your SQL commands, can be all of the following configurations -->
+				              <fileset></fileset>
+				              <sqlCommand></sqlCommand>
+				              <srcFiles>
+				                <srcFile></srcFile>
+				              </srcFiles>
+				            </configuration>
+				          </execution>
+				          <execution>
+				     
+			</plugins>
+
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- put your configurations here -->
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+		<finalName>bankonet-conseiller-final</finalName>
+	</build>
+
+</project>

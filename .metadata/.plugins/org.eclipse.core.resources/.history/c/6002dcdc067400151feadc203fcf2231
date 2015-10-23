@@ -1,7 +1,0 @@
-package dao.client;
-
-
-public interface ClientsDAO {
-	List<Client> FindAll();
-	save(Client);
-}

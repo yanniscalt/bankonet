@@ -1,0 +1,11 @@
+package factory;
+
+
+public class ClientTest {
+
+	@Test
+	public void testRetournerCompte() {
+		
+	}
+
+}
