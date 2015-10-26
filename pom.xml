@@ -90,7 +90,7 @@
 	     <dependency>
 			<groupId>dta</groupId>
 			<artifactId>bankonet-lib</artifactId>
-			<version>1.0.0</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 	</dependencies>
