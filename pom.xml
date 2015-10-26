@@ -10,6 +10,16 @@
 	<module>bankonet-data</module>
 	<module>bankonet-lib</module>
 </modules>
+
+
+<properties>
+	<jdbc.url>jdbc:mysql://localhost:3306/bankonet</jdbc.url>
+	<jdbc.user>yannis</jdbc.user>
+	<jdbc.password>yannis</jdbc.password>
+	<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+</properties>
+
+
 <build>
 <pluginManagement>
 	<plugins>
